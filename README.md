@@ -1,39 +1,25 @@
-# ddos
-<b>ddos</b>--simple program to test ddos protection system</br>
-<b>THIS PROGRAM PROVIDED FOR ONLY EDUCATIONAL PURPOSES</b><br>
-## Support
-The support of this program is currently stopped. The development of completely new toolkit is started at https://github.com/Andrewerr/ddos2
-## Compilation
-```$ ./build.sh release ```<br>
-<b>Notice:</b>Current build is not supported by some compilers.Download latest relase from here: https://github.com/Andrewerr/ddos/releases
-<br>
-## Usage
-```$./ddos (HOST) (PORT) [options...] ``` <br>
-HOST -- host to ddos<br>
-PORT -- port to connect,if set to 0 will try random ports<br>
-<b>Options:</b><br>
-<p>
--r -- generate random packet<br>
--u -- Use UDP<br>
--p -- Use TCP<br>
--t (THREAD COUNT) -- describes thread count,by default set to 5<br>
--s (PACKET SIZE) -- set packet size<br>
---http -- Make http request<br>
---no-warnings -- ignore all warnings<br>
---no-errors -- ignore errors<br>
---no-wait -- Do not wait server to respond<br>
---no-check -- Do not check server before starting ddos<br>
---packetfile (FILENAME) -- load packet conents from file(Could be overrided with --http option)<br>
---sleep (TIME) -- sleep between packets sendings (in milliseconds)<br>
-</p><br>
-  
-## Examples
-``` $ ./ddos some.boring.long.domain.net 80 -t 70 --no-wait --http ```
-  <br>
-  This will send packets  some.boring.long.domain.net:80 without waiting for response using http request syntax in 70 threads.<br>
-``` $ ./ddos example.com 88 --no-check --no-wait -u ```
-  <br>
-  With this options program will send  packets to example.com:88 without pre-start host check and without waiting for response.Program will use 5 threads. Program will use UDP protocol.<br>
+## Memcached server ips file
+In this directory file with public memcached servers is stored.<br>
+Originally takne from https://github.com/SecOps-Institute/memcached-server-iplist
 
-## Updating
-``` $ ./build.sh update ```
+## Format
+Example:<br>
+```
+127.0.0.1
+0.0.0.0
+192.168.0.0
+192.168.0.1
+```
+## Automatic formatting
+prepare.py could format your file automtically.It'll delete all lines that are not supported<br>
+Usage:<br>
+```./prepare.py <ipfile>```<br>
+Example:<br>
+```
+$ ./prepare.py ipfile
+[+]:Total lines:58482
+[+]:Unsupported lines:874
+[*]:Rewritng file...
+[+]:Done in 0.13s
+```
+
